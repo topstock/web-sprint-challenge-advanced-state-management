@@ -3,17 +3,15 @@ import Smurf from './Smurf';
 import { connect } from 'react-redux';
 
 const SmurfList = (props)=> {
-  useEffect(() => {
-  });
-  const { smurfs, isLoading, error, } = props;
+  const { smurfs, isLoading } = props;
 
-  if (props.isLoading) {
+  if (isLoading) {
     return <h1>Loading...</h1>;
   }
   
   return(
-    <div className="listContainer">
-      { props.smurfs.map( smurf => {
+    <div className='listContainer'>
+      { smurfs.map( smurf => {
         return(<Smurf smurf={smurf}/>)
       })}
     </div>);
@@ -23,7 +21,6 @@ const mapStateToProps = (state) => {
     return {
         smurfs: state.smurfs,
         isLoading: state.isLoading,
-        error: state.error
     }
 }
 

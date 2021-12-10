@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { addSmurf, setError } from './../actions';
 const AddForm = (props) => {
 const initialState = {
-        name:"",
-        position:"",
-        nickname:"",
-        description:""
+        name:'',
+        position:'',
+        nickname:'',
+        description:''
     }
 
   const { addSmurf, setError, error } = props;
@@ -24,37 +24,37 @@ const initialState = {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (state.name === "" || state.position === "" || state.nickname === "") {
+    if (state.name === '' || state.position === '' || state.nickname === '') {
       //dispatch a custom error action
-      return setError("Stop Smurfing around. enter name, position, and nickname!");
+      return setError('Stop Smurfing around. Enter name, position, and nickname!');
     } else {
       addSmurf(state);
       setState(initialState);
     }
   }
-  console.log("data to post", state);
-  console.log("shape of props error data", props.error);
+  console.log('data to post', state);
+  console.log('shape of props error data', props.error);
   return(<section>
     <h2>Add Smurf</h2>
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="name">Name:</label><br/>
-        <input onChange={handleChange} value={state.name} name="name" id="name" />
+      <div className='form-group'>
+        <label htmlFor='name'>Name:</label><br/>
+        <input onChange={handleChange} value={state.name} name='name' id='name' />
       </div>
-      <div className="form-group">
-        <label htmlFor="position">Position:</label><br/>
-        <input onChange={handleChange} value={state.position} name="position" id="position" />
+      <div className='form-group'>
+        <label htmlFor='position'>Position:</label><br/>
+        <input onChange={handleChange} value={state.position} name='position' id='position' />
       </div>
-      <div className="form-group">
-        <label htmlFor="nickname">Nickname:</label><br/>
-        <input onChange={handleChange} value={state.nickname} name="nickname" id="nickname" />
+      <div className='form-group'>
+        <label htmlFor='nickname'>Nickname:</label><br/>
+        <input onChange={handleChange} value={state.nickname} name='nickname' id='nickname' />
       </div>
-      <div className="form-group">
-        <label htmlFor="description">Description:</label><br/>
-        <textarea onChange={handleChange} value={state.description} name="description" id="description" />
+      <div className='form-group'>
+        <label htmlFor='description'>Description:</label><br/>
+        <textarea onChange={handleChange} value={state.description} name='description' id='description' />
       </div>
       {
-        error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
+        error && <div data-testid='errorAlert' className='alert alert-danger' role='alert'>Error: {error}</div>
       }
         <button>Submit Smurf</button>
       </form>

@@ -89,8 +89,8 @@ In this project, you will build the reducer, actions and basic redux connects to
 
   * [X] Connect your error state slice, setError and addSmurf actions to the AddForm component.
   * [X] Replace all instances of the errorMessage static variable with your error message state slice. 
-  * [ ] Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when validation code fails.
-  * [ ] Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summery passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+  * [X] Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when validation code fails.
+  * [X] Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summery passed as arguments. Test that a smurf is correctly added to when the form is submitted.
 
 ## Important Notes:
 
@@ -112,9 +112,33 @@ In this project, you will build the reducer, actions and basic redux connects to
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. What problem does the context API help solve?
+  Context API makes it easier to pass data to deeply nested components - specially data that can become unmanageable when passing through every level of a omponent tree.  
+
 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-
+ 
+ Actions are the types of changes that a finite set of state can make. 
+ Actions are a collection of transition descriptions, each an object which includes only a type and an optionally payload.
+ They are sent to a reducer through a component's handler function via a dispatch call on it's action creator.
+   
+ Reducers are decentralized pure functions. 
+ They are a limited set of transitions of finite slices state.
+ They can take payloads to use in generating new states to set state.
+ They are sent to a store that uses them to set state.
+ 
+ Stores are the only sources of specific immutable states (data) and reducers (logic) within an App.  
+ Stores can be connected to components without regard to nesting and pass data and logic.
+ Stores use dispatch through connected components to send actions to reducers.
+ 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
 
+Primarily, redux-thunk allows for action-creators to dispatch multiple actions.  Action creators can
+use redux-thunk to use promise based HTTP client requests, and other AJAX requests.  These types of 
+action creators can be used in asynchronous routing.
+
+
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is my preferred state management system because it is easier to track large data or complex component trees.  
+A Finite State Machine model and a little whiteboarding make it highly predictable.  It's history tracking makes it highly 
+debuggable.  It's separation of concerns makes it super flexible and reusable.

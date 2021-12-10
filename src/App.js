@@ -7,7 +7,7 @@ import Header from './components/Header';
 import { fetchSmurfs } from './actions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
+import './App.css';
 
 
 const App = (props)=> {
@@ -16,7 +16,7 @@ const App = (props)=> {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
       <main>
         <SmurfList/>

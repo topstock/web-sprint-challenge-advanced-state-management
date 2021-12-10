@@ -9,11 +9,9 @@ import App from './App';
 
 import './index.css';
 
-const thunkMiddleware = thunk;
-
 const logger = createLogger;
 
-const store = createStore(reducer, applyMiddleware(logger, thunkMiddleware));
+const store = createStore(reducer, applyMiddleware(logger, thunk));
 
 const { worker } = require('./mocks/browser');
 worker.start();
