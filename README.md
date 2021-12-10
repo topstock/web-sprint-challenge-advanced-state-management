@@ -132,8 +132,9 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
  
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
 
-Primarily, redux-thunk allows for action-creators to dispatch multiple actions.  Action creators can
-use redux-thunk to use promise based HTTP client requests, and other AJAX requests.  These types of 
+Primarily, redux-thunk allows for action-creators to call multiple dispatches (thunks) 
+or call other functions (also thunks).  
+Action creators can use redux-thunk to use promise based HTTP client requests, and other AJAX requests.  These types of 
 action creators can be used in asynchronous routing.
 
 
