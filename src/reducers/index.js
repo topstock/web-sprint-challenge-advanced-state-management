@@ -1,8 +1,35 @@
-
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL, ADD_SMURF } from './../actions/index'; 
 export const initialState = {
+  smurfs: [],
+  isLoading: false,
+  error: ''
 }
 
-const reducer = ()=>{
+const reducer = (state=initialState, action)=>{
+  switch (action.type) {
+    case FETCH_SMURFS_START:
+      return({...state, isFetching: true});
+    case FETCH_SMURFS_SUCCESS:
+      return({...state, smurfs: action.payload, isFetching: false});
+    case FETCH_SMURFS_FAIL:
+      return({...state, isFetching: false, error: action.payload});
+    case ADD_SMURF:
+      return({...state, 
+        smurfs: [
+          ...state.smurfs, 
+          { 
+            id: state.payload.id,
+            name:'Poppa Smurf',
+            position:'Village Leader',
+            nickname: 'Pops',
+            description: state.payload 
+          } 
+        ]})
+    default:
+      return state
+  }
+
+
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
